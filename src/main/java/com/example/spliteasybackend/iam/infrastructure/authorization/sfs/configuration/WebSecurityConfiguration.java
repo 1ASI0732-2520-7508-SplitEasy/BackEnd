@@ -117,6 +117,9 @@ public class WebSecurityConfiguration {
                                 "/webjars/**"
                         ).permitAll()
 
+                        //PERMITIR PUBLIC PING
+                        .requestMatchers("/", "/error","public/**").permitAll()
+
                         // 🔐 ENDPOINTS protegidos por rol REPRESENTANTE
                         .requestMatchers("/api/v1/bills/**").hasAuthority("ROLE_REPRESENTANTE")
                         .requestMatchers("/api/v1/contributions/**").hasAuthority("ROLE_REPRESENTANTE")
